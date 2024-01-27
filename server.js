@@ -1,7 +1,9 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
-const port = 3000;
+
+// Use the port Vercel provides, or fallback to 3000 for local development
+const port = process.env.PORT || 3000;
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -32,7 +34,7 @@ app.post('/button-click', (req, res) => {
   }
   // ... handle other buttons similarly
 
-  // Send a response with the new frame state WrGbXR8kIjGLwAatW3dc
+  // Send a response with the new frame state
   res.send(`
     <!DOCTYPE html>
     <html lang="en">
@@ -60,29 +62,5 @@ app.post('/button-click', (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(`Server running at http://localhost:${port}`);
+  console.log(`Server running on port ${port}`);
 });
-
-
-
-// const express = require('express');
-// const app = express();
-// const port = 3000;
-// const bodyParser = require('body-parser');
-// app.use(bodyParser.json()); // for parsing application/json
-
-
-// app.get('/', (req, res) => {
-//   res.sendFile(__dirname + '/frame.html'); // This will serve your frame.html file
-// });
-// // Place this code below your existing app.get('/') route
-
-// app.post('/button-click', (req, res) => {
-//     // For now, we'll just log the body to see what data we're receiving
-//     console.log(req.body);
-//     res.status(200).send('Button click received');
-//   });
-  
-// app.listen(port, () => {
-//   console.log(`Server running at http://localhost:${port}`);
-// });
