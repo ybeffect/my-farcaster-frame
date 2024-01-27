@@ -32,7 +32,7 @@ app.post('/button-click', (req, res) => {
   }
   // ... handle other buttons similarly
 
-  // Send a response with the new frame state
+  // Send a response with the new frame state WrGbXR8kIjGLwAatW3dc
   res.send(`
     <!DOCTYPE html>
     <html lang="en">
